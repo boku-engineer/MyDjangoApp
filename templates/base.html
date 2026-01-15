@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blackjack{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/game.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">Blackjack</div>
+        <div class="nav-links">
+            {% if user.is_authenticated %}
+                <span>Welcome, {{ user.username }}</span>
+                <a href="{% url 'game_table' %}">Play</a>
+                <a href="{% url 'game_history' %}">History</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <main>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

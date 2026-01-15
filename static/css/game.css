@@ -1,0 +1,336 @@
+/* Basic reset and styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #eee;
+    min-height: 100vh;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #16213e;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e94560;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #eee;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #e94560;
+}
+
+/* Main content */
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Messages */
+.message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.message.success {
+    background-color: #0f5132;
+}
+
+.message.error {
+    background-color: #842029;
+}
+
+/* Auth container */
+.auth-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #16213e;
+    border-radius: 8px;
+}
+
+.auth-container h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.auth-container form p {
+    margin-bottom: 1rem;
+}
+
+.auth-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #1a1a2e;
+    color: #eee;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.auth-container button:hover {
+    background-color: #c73e54;
+}
+
+.auth-container p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.auth-container a {
+    color: #e94560;
+}
+
+/* Error list styling */
+.errorlist {
+    color: #e94560;
+    list-style: none;
+    font-size: 0.875rem;
+}
+
+/* Game container */
+.game-container {
+    text-align: center;
+}
+
+.game-table {
+    background-color: #0d5c2e;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 600px;
+}
+
+/* Hands */
+.hand {
+    margin: 1.5rem 0;
+    padding: 1rem;
+}
+
+.hand h3 {
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 70px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 6px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.card.hidden {
+    background-color: #e94560;
+    color: #fff;
+}
+
+.score {
+    margin-top: 0.75rem;
+    font-size: 1.1rem;
+}
+
+/* Game result */
+.game-result {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.game-result h2 {
+    color: #ffd700;
+}
+
+.result-player_bust h2,
+.result-dealer_win h2 {
+    color: #e94560;
+}
+
+.result-blackjack h2 {
+    color: #00ff00;
+}
+
+/* Game actions */
+.game-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-hit {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-hit:hover {
+    background-color: #45a049;
+}
+
+.btn-stand {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn-stand:hover {
+    background-color: #f57c00;
+}
+
+.btn-new {
+    background-color: #e94560;
+    color: white;
+}
+
+.btn-new:hover {
+    background-color: #c73e54;
+}
+
+/* No game state */
+.no-game {
+    text-align: center;
+    padding: 3rem;
+    background-color: #16213e;
+    border-radius: 12px;
+}
+
+.no-game h2 {
+    margin-bottom: 1rem;
+}
+
+.no-game p {
+    margin-bottom: 1.5rem;
+    color: #aaa;
+}
+
+/* History table */
+.history-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.history-container h2 {
+    margin-bottom: 1.5rem;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #16213e;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.history-table th,
+.history-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.history-table th {
+    background-color: #0f3460;
+}
+
+.history-table .win {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.history-table .loss {
+    color: #e94560;
+    font-weight: bold;
+}
+
+.history-table .push {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.no-history {
+    text-align: center;
+    padding: 2rem;
+    color: #aaa;
+}
+
+.no-history a {
+    color: #e94560;
+}
+
+.history-actions {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.history-actions .btn {
+    background-color: #16213e;
+    color: #eee;
+    border: 1px solid #333;
+}
+
+.history-actions .btn:hover {
+    background-color: #0f3460;
+}
