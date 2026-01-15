@@ -58,5 +58,8 @@ staticfiles/
 
 # Project documentation (local only, for LLM analysis)
 PROJECT_STRUCTURE.md
+PROJECT_STRUCTURE_2.md
 IMPLEMENTATION_PLAN.md
-Instructions/
+docs/git-workflow.md
+FEEDBACK.md
+20260115_plan.md
