@@ -1,0 +1,2 @@
+# Base requirements - core dependencies for both dev and production
+Django>=5.0

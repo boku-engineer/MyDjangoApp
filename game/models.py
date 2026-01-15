@@ -1,5 +1,5 @@
+from django.conf import settings
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class GameSession(models.Model):
@@ -15,7 +15,7 @@ class GameSession(models.Model):
         ('dealer_bust', 'Dealer Bust'),
     ]
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='game_sessions')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='game_sessions')
     player_cards = models.JSONField(default=list)
     dealer_cards = models.JSONField(default=list)
     player_score = models.IntegerField(default=0)
@@ -42,7 +42,7 @@ class GameHistory(models.Model):
         ('blackjack', 'Blackjack'),
     ]
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='game_history')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='game_history')
     player_final_cards = models.JSONField(default=list)
     dealer_final_cards = models.JSONField(default=list)
     player_final_score = models.IntegerField()

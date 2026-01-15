@@ -3,9 +3,11 @@ Model Tests
 Tests for the database models in game/models.py
 """
 from django.test import TestCase
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 from game.models import GameSession, GameHistory
+
+User = get_user_model()
 
 
 class GameSessionModelTests(TestCase):
