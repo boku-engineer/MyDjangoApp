@@ -7,14 +7,14 @@ Build a Django web application for Blackjack with user authentication and Postgr
 - **Game**: Blackjack only (from existing `learning_blackjack.py`)
 - **Auth**: Simple username/password login
 - **Database**: PostgreSQL
-- **Location**: `/Users/samuelpamudji/Work/Projects/MyDjangoApp`
+- **Location**: Project root directory
 
 ---
 
 ## Project Structure
 
 ```
-/Users/samuelpamudji/Work/Projects/MyDjangoApp/
+MyDjangoApp/
 ├── manage.py
 ├── mydjangoapp/                      # Project settings
 │   ├── settings.py                   # PostgreSQL config
