@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Play Blackjack{% endblock %}
+
+{% block content %}
+<div class="game-container">
+    {% if game %}
+        <div class="game-table">
+            <!-- Dealer's Hand -->
+            <div class="hand dealer-hand">
+                <h3>Dealer's Hand</h3>
+                <div class="cards">
+                    {% if game.status == 'in_progress' %}
+                        <span class="card">{{ game.dealer_cards.0 }}</span>
+                        <span class="card hidden">?</span>
+                    {% else %}
+                        {% for card in game.dealer_cards %}
+                            <span class="card">{{ card }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <p class="score">
+                    {% if game.status == 'in_progress' %}
+                        Score: ?
+                    {% else %}
+                        Score: {{ game.dealer_score }}
+                    {% endif %}
+                </p>
+            </div>
+
+            <!-- Player's Hand -->
+            <div class="hand player-hand">
+                <h3>Your Hand</h3>
+                <div class="cards">
+                    {% for card in game.player_cards %}
+                        <span class="card">{{ card }}</span>
+                    {% endfor %}
+                </div>
+                <p class="score">Score: {{ game.player_score }}</p>
+            </div>
+
+            <!-- Game Result -->
+            {% if game.status != 'in_progress' %}
+                <div class="game-result result-{{ game.status }}">
+                    {% if game.status == 'blackjack' %}
+                        <h2>Blackjack! You Win!</h2>
+                    {% elif game.status == 'player_win' %}
+                        <h2>You Win!</h2>
+                    {% elif game.status == 'dealer_bust' %}
+                        <h2>Dealer Busts! You Win!</h2>
+                    {% elif game.status == 'dealer_win' %}
+                        <h2>Dealer Wins</h2>
+                    {% elif game.status == 'player_bust' %}
+                        <h2>Bust! You Lose</h2>
+                    {% elif game.status == 'push' %}
+                        <h2>Push - It's a Tie!</h2>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <!-- Game Actions -->
+            <div class="game-actions">
+                {% if game.status == 'in_progress' %}
+                    <a href="{% url 'hit' %}" class="btn btn-hit">Hit</a>
+                    <a href="{% url 'stand' %}" class="btn btn-stand">Stand</a>
+                {% else %}
+                    <a href="{% url 'new_game' %}" class="btn btn-new">New Game</a>
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <div class="no-game">
+            <h2>Ready to Play?</h2>
+            <p>Click below to start a new game of Blackjack!</p>
+            <a href="{% url 'new_game' %}" class="btn btn-new">Deal Cards</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

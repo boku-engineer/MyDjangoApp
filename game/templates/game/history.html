@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Game History{% endblock %}
+
+{% block content %}
+<div class="history-container">
+    <h2>Game History</h2>
+
+    {% if history %}
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Your Hand</th>
+                    <th>Dealer Hand</th>
+                    <th>Your Score</th>
+                    <th>Dealer Score</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in history %}
+                    <tr class="result-{{ game.result }}">
+                        <td>{{ game.played_at|date:"M d, Y H:i" }}</td>
+                        <td>{{ game.player_final_cards|join:", " }}</td>
+                        <td>{{ game.dealer_final_cards|join:", " }}</td>
+                        <td>{{ game.player_final_score }}</td>
+                        <td>{{ game.dealer_final_score }}</td>
+                        <td class="result">
+                            {% if game.result == 'blackjack' %}
+                                <span class="win">Blackjack!</span>
+                            {% elif game.result == 'win' %}
+                                <span class="win">Win</span>
+                            {% elif game.result == 'loss' %}
+                                <span class="loss">Loss</span>
+                            {% else %}
+                                <span class="push">Push</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="no-history">No games played yet. <a href="{% url 'new_game' %}">Start playing!</a></p>
+    {% endif %}
+
+    <div class="history-actions">
+        <a href="{% url 'game_table' %}" class="btn">Back to Game</a>
+    </div>
+</div>
+{% endblock %}
