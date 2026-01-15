@@ -92,3 +92,4 @@ After the PR is reviewed and approved:
 3. **Write tests first** - This ensures testable code design
 4. **One feature per PR** - Keep PRs focused and reviewable
 5. **Project name = Folder name** - Keep naming consistent across the project
+6. **No personal information** - Never include personal information (names, emails, usernames, file paths containing usernames, etc.) in any files, comments, commit messages, or code. Use generic placeholders or project-relative paths instead
