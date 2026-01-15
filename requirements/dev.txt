@@ -1,0 +1,8 @@
+# Development requirements
+-r base.txt
+
+# Database adapter (pre-compiled for fast development setup)
+psycopg2-binary>=2.9
+
+# Environment variable loading
+python-dotenv>=1.0
