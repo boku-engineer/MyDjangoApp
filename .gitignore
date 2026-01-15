@@ -55,3 +55,8 @@ staticfiles/
 # Environment variables
 .env
 .env.local
+
+# Project documentation (local only, for LLM analysis)
+PROJECT_STRUCTURE.md
+IMPLEMENTATION_PLAN.md
+Instructions/
